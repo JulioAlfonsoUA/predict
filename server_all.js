@@ -3,6 +3,7 @@
 // Cumple el contrato oficial: /health, /ready, /predict
 
 const express = require('express');
+const mongoose = require("mongoose");
 const path = require('path');
 const { pathToFileURL } = require('url');
 const tf = require('@tensorflow/tfjs');
@@ -10,6 +11,15 @@ const wasmBackend = require('@tensorflow/tfjs-backend-wasm');
 
 const MODEL_VERSION = "v1.0";
 const PORT = process.env.PORT || 3002;
+
+mongoose.connect('mongodb://localhost:27017/prediccion')
+.then(() => {
+    console.log('Conexión a la base de datos establecida');
+}).catch(err => {
+    console.error('Error de conexión a la base de datos:', err);
+});
+
+
 
 // ---------------------------------------------------------------------
 //  CONFIG EXPRESS
