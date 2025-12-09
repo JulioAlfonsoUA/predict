@@ -72,7 +72,6 @@ async function doPredict(req, res) {
       timestamp
     })
 
-    // De momento sin MongoDB → predictionId null
     res.status(201).json({
       predictionId: guardado._id,
       prediction,

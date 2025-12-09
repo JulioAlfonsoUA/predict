@@ -13,7 +13,7 @@ const MONGO_URI = process.env.MONGO_URI;
 
 const app = express();
 app.use(express.json());
-console.log(process.env.MONGO_URI );
+
 mongoose.connect(process.env.MONGO_URI || 'mongodb://mongo:27017/prediccion')
 .then(() => {
     console.log('Conexión a la base de datos establecida');
