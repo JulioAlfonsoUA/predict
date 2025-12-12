@@ -8,13 +8,13 @@ const path = require("path");
 const predictRoutes = require("./routes/predictRoutes");
 const { initModel } = require("./services/tfModelService");
 
-const PORT = process.env.PORT || 3002;
-const MONGO_URI = process.env.MONGO_URI;
+const PORT = process.env.PREDICT_PORT || 3002;
+const MONGO_URI = process.env.MONGO_URI_PREDICT;
 
 const app = express();
 app.use(express.json());
 
-mongoose.connect(process.env.MONGO_URI || 'mongodb://mongo:27017/prediccion')
+mongoose.connect(MONGO_URI || 'mongodb://mongo:27017/prediccion')
 .then(() => {
     console.log('Conexión a la base de datos establecida');
 }).catch(err => {

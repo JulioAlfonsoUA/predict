@@ -80,7 +80,7 @@ async function doPredict(req, res) {
     });
   } catch (err) {
     console.error("Error en /predict:", err);
-    res.status(500).json({ error: "Internal error" });
+    res.status(500).json({ error: "Internal error in predict", message: err.message });
   }
 }
 

@@ -3,7 +3,6 @@ const path = require("path");
 const { pathToFileURL } = require("url");
 const tf = require("@tensorflow/tfjs");
 const wasmBackend = require("@tensorflow/tfjs-backend-wasm");
-
 const MODEL_VERSION = process.env.MODEL_VERSION;
 
 let model = null;
